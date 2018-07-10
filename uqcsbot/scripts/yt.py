@@ -41,11 +41,8 @@ def get_top_video_result(search_query: str, channel):
     The normal method for using !yt searches based on query
     and returns the first video result. "I'm feeling lucky"
     '''
-    search_response = execute_search(search_query,
-                                   'id',  # Only the video ID is needed to get video link
-                                   'video',  # Only want videos no pesky channels
-                                   1  # Only one video result required in normal mode
-                                   )
+    # Get 1 video ID
+    search_response = execute_search(search_query,'id','video',1)
     search_result = search_response.get('items')
     if search_result is None:
         return None
